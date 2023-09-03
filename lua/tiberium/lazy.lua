@@ -15,6 +15,21 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+       {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
+  },
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -91,6 +106,7 @@ require("lazy").setup({
     -- Theme inspired by Atom
     --'navarasu/onedark.nvim',
     'rose-pine/neovim',
+    as = "rose-pine",
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'rose-pine'
