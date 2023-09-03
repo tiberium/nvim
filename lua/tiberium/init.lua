@@ -1,4 +1,5 @@
 require("tiberium.remap")
+require("tiberium.lazy")
 require("tiberium.set")
 
 -- Disable copilot for certain file types
