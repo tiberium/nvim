@@ -11,9 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- require('lazy').setup("plugins")
-
-
 require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
@@ -27,6 +24,34 @@ require("lazy").setup({
           return vim.fn.executable 'make' == 1
         end,
       },
+    },
+  },
+  
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate'
+  },
+  
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      size = 20,
+      shell = "/usr/bin/zsh",
+      open_mapping = [[<c-\>]],
+      direction = "horizontal"
     },
   },
 
@@ -139,8 +164,6 @@ require("lazy").setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-  
-  { import = 'tiberium.plugins' },
+  { 'numToStr/Comment.nvim', opts = {} },  
 })
 
