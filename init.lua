@@ -7,7 +7,7 @@ require("tiberium")
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+On_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -58,6 +58,13 @@ end
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+--
+--
+-- JAVA configuration
+
+
+--
+--
 local servers = {
   -- clangd = {},
   -- gopls = {},
@@ -72,6 +79,9 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  groovyls = {
+  },
+  gradle_ls = {}
 }
 
 -- Setup neovim lua configuration
@@ -92,7 +102,7 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = On_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
