@@ -1,6 +1,6 @@
 local custom_fname = require('lualine.components.filename'):extend()
 local highlight = require'lualine.highlight'
-local default_status_colors = { saved = '#4d69ff', modified = '#ff4d4d' }
+local default_status_colors = { saved = '#00ff99', modified = '#4d69ff' }
 
 function custom_fname:init(options)
   options.path = 1  -- show relative path in the filename
