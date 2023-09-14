@@ -54,6 +54,10 @@ require("lazy").setup({
       direction = "horizontal"
     },
   },
+  {
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+  },
 
   -- Git related plugins
   'tpope/vim-fugitive',
