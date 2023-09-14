@@ -4,6 +4,6 @@ local neo_tree = require('neo-tree')
 
 neo_tree.setup{}
 
-vim.keymap.set('n', '<leader><Tab>', function ()
+vim.keymap.set('n', '<c-e>', function ()
   return ":Neotree toggle" .. "<cr>"
-end, { expr = true, desc = '[Tab] Toggle Neotree'})
+end, { expr = true })
