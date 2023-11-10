@@ -81,7 +81,16 @@ local servers = {
   },
   groovyls = {
   },
-  gradle_ls = {}
+  gradle_ls = {},
+  pyright = {
+    filetypes = {"python"}
+  },
+  prettier = {
+    filetypes = {"yamlls"}
+  },
+  --debugpy = {
+  --  filetypes = {"python"}
+  --}
 }
 
 -- Setup neovim lua configuration

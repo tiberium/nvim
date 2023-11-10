@@ -9,6 +9,18 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set('n', '<c-a>', function ()
+  return ":quit" .. "<cr>"
+end, { expr = true })
+
 vim.keymap.set('n', '<c-q>', function ()
   return ":quitall" .. "<cr>"
 end, { expr = true })
+
+vim.keymap.set('n', '<c-z>', function ()
+  return ":ZenMode" .. "<cr>"
+end, {expr = true})
+
+local M = {}
+
+return M
