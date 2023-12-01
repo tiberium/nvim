@@ -85,7 +85,7 @@ require("lazy").setup({
     version = "*",
     opts = {
       size = 20,
-      shell = "/usr/bin/zsh",
+      shell = "/bin/zsh",
       open_mapping = [[<c-\>]],
       direction = "horizontal"
     },
