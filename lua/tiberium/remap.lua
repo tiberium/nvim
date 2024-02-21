@@ -1,5 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Moving blocks of text up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -9,18 +9,35 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set('n', '<c-a>', function ()
+vim.keymap.set("n", "<c-a>", function()
   return ":quit" .. "<cr>"
 end, { expr = true })
 
-vim.keymap.set('n', '<c-q>', function ()
+vim.keymap.set("n", "<c-q>", function()
   return ":quitall" .. "<cr>"
 end, { expr = true })
 
-vim.keymap.set('n', '<c-z>', function ()
+vim.keymap.set("n", "<c-z>", function()
   return ":ZenMode" .. "<cr>"
-end, {expr = true})
+end, { expr = true })
+
+vim.keymap.set({ "n", "v" }, "<leader>F", function()
+  local conform = require("conform")
+  conform.format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 500,
+  })
+end, { desc = "Format file or selected text" })
+
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
 
 local M = {}
 
 return M
+
+
