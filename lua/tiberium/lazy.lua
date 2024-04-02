@@ -206,6 +206,15 @@ require("lazy").setup({
   },
 
   {
+    "ellisonleao/gruvbox.nvim",
+    as = "gruvbox",
+    config = function()
+      vim.cmd.colorscheme("gruvbox")
+    end,
+    priority = 1000,
+  },
+
+  {
     -- Set lualine as statusline
     "nvim-lualine/lualine.nvim",
     -- See `:help lualine.txt`
