@@ -30,14 +30,17 @@ vim.keymap.set({ "n", "v" }, "<leader>F", function()
   })
 end, { desc = "Format file or selected text" })
 
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
+-- Copilot settings
 vim.g.copilot_no_tab_map = true
+-- Copilot Accept Word
+vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+-- Copilot Next suggestion
+vim.keymap.set("i", "<C-H>", "<Plug>(copilot-next)")
+-- Copilot Accept Next Word
+vim.keymap.set("i", "<C-M>", "<Plug>(copilot-accept-word)")
 
-local M = {}
-
-return M
-
-
+--local builtin = require("telescope.builtin")
+--vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = "[S]earch [r]ecently opened files" })

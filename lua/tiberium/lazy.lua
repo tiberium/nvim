@@ -1,3 +1,4 @@
+-- Install lazy.nvim if it doesn't exist
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -64,7 +65,7 @@ require("lazy").setup({
     opts = {
       window = {
         backdrop = 1,
-        width = 0.75,
+        width = 0.60,
       },
     },
   },
@@ -174,21 +175,22 @@ require("lazy").setup({
       on_attach = function(bufnr)
         vim.keymap.set(
           "n",
-          "<leader>gp",
+          "<leader>gN",
           require("gitsigns").prev_hunk,
-          { buffer = bufnr, desc = "[G]o to [P]revious Hunk" }
+          { buffer = bufnr, desc = "[G]it previous hunk [N]" }
         )
+        vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "[G]it [n]ext hunk" })
         vim.keymap.set(
           "n",
-          "<leader>gn",
-          require("gitsigns").next_hunk,
-          { buffer = bufnr, desc = "[G]o to [N]ext Hunk" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>ph",
+          "<leader>gp",
           require("gitsigns").preview_hunk,
-          { buffer = bufnr, desc = "[P]review [H]unk" }
+          { buffer = bufnr, desc = "[G]it [p]review hunk" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>gr",
+          require("gitsigns").reset_hunk,
+          { buffer = bufnr, desc = "[G]it [r]eset hunk" }
         )
       end,
     },
