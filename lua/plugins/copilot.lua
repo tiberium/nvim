@@ -12,6 +12,6 @@ return {
     -- Copilot Accept Next Word
     vim.keymap.set("i", "<C-M>", "<Plug>(copilot-accept-word)")
 
-    vim.g.copilot_filetypes = { markdown = true, adoc = true }
+    vim.g.copilot_filetypes = { markdown = true, adoc = true, jinja2 = true }
   end,
 }
