@@ -10,11 +10,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<c-a>", function()
-  return ":quit" .. "<cr>"
+	return ":quit" .. "<cr>"
 end, { expr = true })
 
 vim.keymap.set("n", "<c-q>", function()
-  return ":quitall" .. "<cr>"
+	return ":quitall" .. "<cr>"
 end, { expr = true })
 
 -- TODO Move to conform configuration
@@ -30,9 +30,14 @@ end, { expr = true })
 -- Copilot settings
 
 vim.cmd(
-  [[command! -nargs=0 Treeshow execute "vnew | setlocal buftype=nofile | read !tree -n -I '*.pyc|*pycache*'" expand('%:p:h') | normal gg]]
+	[[command! -nargs=0 Treeshow execute "vnew | setlocal buftype=nofile | read !tree -n -I '*.pyc|*pycache*'" expand('%:p:h') | normal gg]]
 )
 
 vim.keymap.set("n", "<c-e>", function()
-  return ":Treeshow" .. "<cr>"
+	return ":Treeshow" .. "<cr>"
+end, { expr = true })
+
+-- Add keymap for tmux-sesionizer
+vim.keymap.set("n", "<C-F>", function()
+	return ":silent !tmux new-window tmux-sesionizer" .. "<cr>"
 end, { expr = true })
