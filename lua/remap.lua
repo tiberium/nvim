@@ -39,5 +39,5 @@ end, { expr = true })
 
 -- Add keymap for tmux-sesionizer
 vim.keymap.set("n", "<C-F>", function()
-	return ":silent !tmux new-window tmux-sesionizer" .. "<cr>"
+	return ":silent !tmux new-window tmux-sessionizer" .. "<cr>"
 end, { expr = true })
