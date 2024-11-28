@@ -19,7 +19,13 @@ return {
 			vim.keymap.set("n", "<leader>mc", function()
 				local actions = require("CopilotChat.actions")
 				require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-			end),
+			end, { buffer = bufnr, desc = "CopilotChat Menu" }),
+			vim.keymap.set(
+				"n",
+				"<leader>m",
+				function() end,
+				{ buffer = bufnr, desc = "x: stop, R: reset, e: explain, r: review, o: optimize, d:docs, t: test" }
+			),
 		})
 	end,
 }
