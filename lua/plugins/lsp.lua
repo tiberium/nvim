@@ -86,7 +86,6 @@ return {
 			})
 		end,
 	},
-	{ "folke/neodev.nvim", opts = {} },
 	{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 	{
 		"neovim/nvim-lspconfig",
@@ -94,8 +93,18 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"j-hui/fidget.nvim",
-
-			"folke/neodev.nvim",
+			{
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = {
+					library = {
+						{
+							path = "${3rd}/luv/library",
+							words = { "vim%.uv" },
+						},
+					},
+				},
+			},
 		},
 		config = function()
 			local lspconfig = require("lspconfig")

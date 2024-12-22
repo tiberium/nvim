@@ -41,3 +41,11 @@ end, { expr = true })
 vim.keymap.set("n", "<C-F>", function()
 	return ":silent !tmux new-window tmux-sessionizer" .. "<cr>"
 end, { expr = true })
+
+-- configuration for term
+vim.keymap.set("n", "<leader>tt", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 10)
+end)
