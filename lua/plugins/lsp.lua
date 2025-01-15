@@ -58,7 +58,7 @@ return {
 						telemetry = { enable = false },
 					},
 				},
-				groovyls = {},
+				-- groovyls = {},
 				gradle_ls = {},
 
 				bashls = {
