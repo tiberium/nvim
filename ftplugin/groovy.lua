@@ -1,1 +1,3 @@
-require("lspconfig").groovyls.setup({})
+require("lspconfig").groovyls.setup({
+	cmd = { "groovy-language-server" },
+})

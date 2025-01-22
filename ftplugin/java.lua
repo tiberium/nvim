@@ -3,7 +3,7 @@ local jdtls = require("jdtls")
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace
-local root_markers = { "gradlew", "mvnw", ".git" }
+local root_markers = { "gradlew", "mvnw", "gradle", ".git" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 
 -- eclipse.jdt.ls stores project specific data within a folder. If you are working
@@ -13,7 +13,7 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 local jdtls_dir = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-local config_dir = jdtls_dir .. "/config_mac_arm"
+local config_dir = jdtls_dir .. "/config_linux"
 local plugins_dir = jdtls_dir .. "/plugins/"
 local path_to_jar = plugins_dir .. "org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
 
