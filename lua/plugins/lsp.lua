@@ -58,11 +58,13 @@ return {
 						telemetry = { enable = false },
 					},
 				},
-				groovyls = {},
-				gradle_ls = {},
+				-- groovyls = {},
+				-- gradle_ls = {},
 
 				bashls = {
 					filetypes = { "zsh", "sh", "command", "bash" },
+				},
+				pylsp = {
 				},
 			}
 
